@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Home() {
 
-  const animals = [{
+  let animals = [{
       name: "Vitto",
       sex: "macho",
       subtitle: "desparasitado",
@@ -79,9 +79,11 @@ export default function Home() {
           ></Image>
         </div>
 
+        { animals.length > 0 ?
         <div>
           <Card animal={animals[currentIdx]} nextAnimal={nextAnimal} prevAnimal={prevAnimal}></Card>
         </div>
+        : <div className="text-3xl text-white flex justify-center">No hay animales por ahora 🐱</div>}
     </div>
   )
 }
