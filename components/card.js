@@ -2,10 +2,17 @@ import Image from "next/image";
 import { faCheck, faCrosshairs, faTimes, faHeart, faRotateLeft, faCertificate } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export default function Card({ animal }) {
+export default function Card({ animal, nextAnimal, prevAnimal }) {
 
     return <div className="relative mx-auto" style={{width: 600, height: 600}}>
-        <Image layout="fill" src={animal.image}></Image>
+
+        <Image
+            src={animal.image}
+            alt={animal.name}
+            layout="responsive"
+            width={600}
+            height={600}
+        ></Image>
 
         <div className="absolute bottom-0 left-0 right-0 px-7 py-2 text-white z-10">
 
@@ -35,15 +42,15 @@ export default function Card({ animal }) {
 
               <div className="mt-4 mb-2 mx-auto gap-16 flex">
 
-                <div className="text-red-500 border-red-500 border-2 flex w-20 h-20 rounded-full items-center cursor-pointer">
+                <div onClick={nextAnimal} className="text-red-500 border-red-500 border-2 flex w-20 h-20 rounded-full items-center cursor-pointer">
                   <div className="text-5xl font-bold mx-auto"><FontAwesomeIcon icon={faTimes}/></div>
                 </div>
 
-                <div className="text-yellow-500 border-yellow-500 border-2 flex w-16 h-16 rounded-full items-center relative top-2 cursor-pointer">
+                <div onClick={prevAnimal} className="text-yellow-500 border-yellow-500 border-2 flex w-16 h-16 rounded-full items-center relative top-2 cursor-pointer">
                   <div className="text-3xl font-bold mx-auto"><FontAwesomeIcon icon={faRotateLeft}/></div>
                 </div>
 
-                <div className="text-green-300 border-green-500 border-2 flex w-20 h-20 rounded-full items-center cursor-pointer">
+                <div onClick={nextAnimal} className="text-green-300 border-green-500 border-2 flex w-20 h-20 rounded-full items-center cursor-pointer">
                   <div className="text-4xl font-bold mx-auto"><FontAwesomeIcon icon={faHeart}/></div>
                 </div>
 

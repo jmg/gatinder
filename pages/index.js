@@ -1,4 +1,6 @@
 import Card from "../components/card"
+import { useState } from "react"
+import Image from "next/image";
 
 export default function Home() {
 
@@ -40,14 +42,46 @@ export default function Home() {
   }
   ]
 
+  const [currentIdx, setCurrentIndex] = useState(0)
+
+  const changeAnimal = (offset) => {
+
+      if (offset === 1 && currentIdx === animals.length - 1) {
+          currentIdx = 0
+      } else if (offset === -1 && currentIdx === 0) {
+          currentIdx = animals.length - 1
+      } else {
+          currentIdx = currentIdx + offset
+      }
+      setCurrentIndex(currentIdx)
+  }
+
+  const nextAnimal = () => {
+
+      changeAnimal(1)
+  }
+
+  const prevAnimal = () => {
+
+      changeAnimal(-1)
+  }
+
   return (
 
-    <div className="container p-20 mx-auto w-100">
+    <div className="container py-12 md:p-12 mx-auto w-100" style={{minWidth: 600, minHeight: 600}}>
 
-      {animals.map(animal => {
-        return <div className="mb-10"><Card animal={animal}></Card></div>
-      })}
+        <div className="mt-4 mb-14 flex justify-center">
+        <Image
+          className="rounded-full"
+          height={100}
+          width={100}
+          src="https://instagram.faep4-3.fna.fbcdn.net/v/t51.2885-19/286644786_1632660317117622_604458887033610174_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.faep4-3.fna.fbcdn.net&_nc_cat=106&_nc_ohc=IKdZdrOtw3QAX9TLW1T&edm=ANmP7GQBAAAA&ccb=7-5&oh=00_AT-OCNY4bYlRI57qK8otjEq4IvqUyURJvGTupPxoRlmQsQ&oe=62E6C34C&_nc_sid=276363"
+          ></Image>
+        </div>
 
+        <div>
+          <Card animal={animals[currentIdx]} nextAnimal={nextAnimal} prevAnimal={prevAnimal}></Card>
+        </div>
     </div>
   )
 }
