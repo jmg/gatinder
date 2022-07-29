@@ -2,19 +2,19 @@ import Image from "next/image";
 import { faCheck, faCrosshairs, faTimes, faHeart, faRotateLeft, faCertificate } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export default function Card({ animal, nextAnimal, prevAnimal }) {
+export default function Card({ animal, image, nextAnimal, prevAnimal }) {
 
     return <div className="relative mx-auto" style={{width: 600, height: 600}}>
 
         <Image
-            src={animal.image}
-            alt={animal.name}
-            layout="responsive"
-            width={600}
-            height={600}
+          src={image}
+          alt={animal.name}
+          layout="responsive"
+          width={600}
+          height={600}
         ></Image>
 
-        <div className="absolute bottom-0 left-0 right-0 px-7 py-2 text-white z-10">
+        <div className="absolute bottom-0 left-0 right-0 px-4 py-2 text-white z-10">
 
             <div className="mb-2">
               <h2 className="text-5xl font-bold inline">{animal.name} </h2>
@@ -34,8 +34,8 @@ export default function Card({ animal, nextAnimal, prevAnimal }) {
             <p className="mt-2 text-md uppercase">{animal.sex}, {animal.age}</p>
 
             <div className="mt-1 leading-5">
-              <p className="text-md">{animal.desc}</p>
-              <p className="text-md">{animal.desc2}</p>
+              <p className="text-md">{animal.description}</p>
+              <p className="text-md">{animal.description_2}</p>
             </div>
 
             <div className="w-100 flex items-center">

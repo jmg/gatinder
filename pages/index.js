@@ -1,10 +1,11 @@
-import Card from "../components/card"
-import { useState } from "react"
+import Card from "../components/Card"
+import { useEffect, useState } from "react"
 import Image from "next/image";
+import Carousel from 'react-grid-carousel'
 
 export default function Home() {
 
-  let animals = [{
+  /*let animals = [{
       name: "Vitto",
       sex: "macho",
       subtitle: "desparasitado",
@@ -40,9 +41,23 @@ export default function Home() {
     desc2: "La pulga mas dulce 🍬",
     image: "https://instagram.faep4-3.fna.fbcdn.net/v/t51.2885-15/288307992_736174480896690_947793976839798896_n.jpg?stp=dst-jpg_e35&_nc_ht=instagram.faep4-3.fna.fbcdn.net&_nc_cat=106&_nc_ohc=4ecn970FsFQAX8JYgpz&edm=ALQROFkBAAAA&ccb=7-5&ig_cache_key=Mjg2MzAxNzA1MjI0MTI4NDI4Mw%3D%3D.2-ccb7-5&oh=00_AT-VjkfrVsmnrB60oiL-0IaS1HLiGrNWTLvM2pMUeWRQ5w&oe=62E6C7CD&_nc_sid=30a2ef"
   }
-  ]
+  ]*/
 
+  const [animals, setAnimals] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [showMore, setShowMore] = useState(false)
   const [currentIdx, setCurrentIndex] = useState(0)
+
+  useEffect(() => {
+
+    fetch("http://localhost:8000/api/v1/animals/?format=json").then((resp) => resp.json()).then((animals) => {
+      setAnimals(animals)
+      setLoading(false)
+    }).catch(rejected => {
+      console.log(rejected);
+    })
+
+  }, [])
 
   const changeAnimal = (offset) => {
 
@@ -66,22 +81,46 @@ export default function Home() {
       changeAnimal(-1)
   }
 
+  const animal = animals[currentIdx]
+
   return (
+    <div className="container py-8 max-w-4xl mx-auto w-100" style={{minWidth: 600, minHeight: 600}}>
 
-    <div className="container py-12 md:p-12 mx-auto w-100" style={{minWidth: 600, minHeight: 600}}>
-
-        <div className="mt-4 mb-14 flex justify-center">
-        <Image
+        <div className="mb-8 flex justify-center">
+          <Image
           className="rounded-full"
           height={100}
           width={100}
-          src="https://instagram.faep4-3.fna.fbcdn.net/v/t51.2885-19/286644786_1632660317117622_604458887033610174_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.faep4-3.fna.fbcdn.net&_nc_cat=106&_nc_ohc=IKdZdrOtw3QAX9TLW1T&edm=ANmP7GQBAAAA&ccb=7-5&oh=00_AT-OCNY4bYlRI57qK8otjEq4IvqUyURJvGTupPxoRlmQsQ&oe=62E6C34C&_nc_sid=276363"
+          src="/gatimanada_logo.jpg"
           ></Image>
         </div>
 
         { animals.length > 0 ?
         <div>
-          <Card animal={animals[currentIdx]} nextAnimal={nextAnimal} prevAnimal={prevAnimal}></Card>
+          <Carousel gap={0} mobileBreakpoint={0} key={currentIdx}>
+          {
+            animal.images.map((image, idx) => {
+              return <Carousel.Item>
+                <Card animal={animal}
+                image={image}
+                nextAnimal={nextAnimal}
+                prevAnimal={prevAnimal}>
+                </Card>
+              </Carousel.Item>
+            })
+          }
+          </Carousel>
+
+          <div className="pb-0 p-4 mt-2 md:mt-4 text-white text-justify">
+            <div className={showMore ? "" : "line-clamp-6"}>
+              {animal.long_description}
+            </div>
+
+            <button onClick={() => setShowMore(!showMore)} class="mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1.5 px-3 rounded">
+                Mostrar {!showMore ? "más" : "menos"}
+            </button>
+          </div>
+
         </div>
         : <div className="text-3xl text-white flex justify-center">No hay animales por ahora 🐱</div>}
     </div>

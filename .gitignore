@@ -30,3 +30,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+*.pyc
+*.sqlite3
+
+backend/gatinder/static/*
+backend/gatinder/gatinder/images/*
