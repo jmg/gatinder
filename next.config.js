@@ -6,6 +6,7 @@ const nextConfig = {
     domains: [
       'localhost',
       'api.catpuccino.org',
+      'gatinder.catpuccino.org',
     ]
   }
 }

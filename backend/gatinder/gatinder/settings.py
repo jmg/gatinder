@@ -32,8 +32,8 @@ if ENV == 'LOCAL':
     SSL_HOST = "http://localhost:8000"
     ALLOWED_HOSTS = ["localhost"]
 else:
-    SSL_HOST = "http://api.catpuccino.org"
-    ALLOWED_HOSTS = ["api.catpuccino.org"]
+    SSL_HOST = "http://gatinder.catpuccino.org"
+    ALLOWED_HOSTS = ["gatinder.catpuccino.org"]
     DEBUG = False
 
 CORS_ALLOWED_ORIGINS = ["https://gatinder-gatimanada.vercel.app", "http://localhost:3000"]
