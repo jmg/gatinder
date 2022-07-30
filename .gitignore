@@ -34,7 +34,10 @@ yarn-error.log*
 *.pyc
 *.sqlite3
 
+# backend
+
 backend/gatinder/static/*
 backend/gatinder/gatinder/images/*
+backend/gatinder/gatinder/settings_local.py
 
 server.sh
