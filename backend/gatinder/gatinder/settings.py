@@ -26,16 +26,17 @@ SECRET_KEY = 'django-insecure-$udfb2w*w1vw9b9ik0#r-d1-c%l11vp#)fo4dmn^kqk7lis!^i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 ENV = os.environ.get('ENV', 'LOCAL')
 
 if ENV == 'LOCAL':
     SSL_HOST = "http://localhost:8000"
     FRONT_END_APP = "http://localhost:3000"
+    ALLOWED_HOSTS = ["localhost"]
 else:
-    SSL_HOST = "http://localhost:8000"
-    FRONT_END_APP = "http://localhost:3000"
+    SSL_HOST = "http://api.catpuccino.org"
+    FRONT_END_APP = "https://gatinder-gatimanada.vercel.app"
+    ALLOWED_HOSTS = ["api.catpuccino.org"]
+    DEBUG = False
 
 CORS_ALLOWED_ORIGINS = [FRONT_END_APP]
 CORS_ALLOW_METHODS = [
@@ -60,9 +61,12 @@ CORS_ALLOW_HEADERS = [
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+if DEBUG:
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, "static"),
+    ]
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Application definition
 
