@@ -36,3 +36,5 @@ yarn-error.log*
 
 backend/gatinder/static/*
 backend/gatinder/gatinder/images/*
+
+server.sh
