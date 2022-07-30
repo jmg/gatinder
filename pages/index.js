@@ -1,3 +1,4 @@
+import API_URL from "../settings"
 import Card from "../components/Card"
 import { useEffect, useState } from "react"
 import Image from "next/image";
@@ -50,7 +51,7 @@ export default function Home() {
 
   useEffect(() => {
 
-    fetch("http://localhost:8000/api/v1/animals/?format=json").then((resp) => resp.json()).then((animals) => {
+    fetch(API_URL + "/animals/?format=json").then((resp) => resp.json()).then((animals) => {
       setAnimals(animals)
       setLoading(false)
     }).catch(rejected => {

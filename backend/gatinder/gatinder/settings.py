@@ -30,15 +30,13 @@ ENV = os.environ.get('ENV', 'LOCAL')
 
 if ENV == 'LOCAL':
     SSL_HOST = "http://localhost:8000"
-    FRONT_END_APP = "http://localhost:3000"
     ALLOWED_HOSTS = ["localhost"]
 else:
     SSL_HOST = "http://api.catpuccino.org"
-    FRONT_END_APP = "https://gatinder-gatimanada.vercel.app"
     ALLOWED_HOSTS = ["api.catpuccino.org"]
     DEBUG = False
 
-CORS_ALLOWED_ORIGINS = [FRONT_END_APP]
+CORS_ALLOWED_ORIGINS = ["https://gatinder-gatimanada.vercel.app", "http://localhost:3000"]
 CORS_ALLOW_METHODS = [
     "DELETE",
     "GET",
