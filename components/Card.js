@@ -2,7 +2,29 @@ import Image from "next/image";
 import { faCheck, faCrosshairs, faTimes, faHeart, faRotateLeft, faCertificate } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+const MySwal = withReactContent(Swal)
+
+
 export default function Card({ animal, image, nextAnimal, prevAnimal }) {
+
+    const showForm = () => {
+        Swal.fire({
+          title: "It's a match!",
+          html: '¿Querés completar el formulario de pre-adopción para <b class="text-blue-500">' + animal.name + '</b>?',
+          icon: 'success',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Si! Quiero completarlo',
+          cancelButtonText: 'No, gracias'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.href = 'https://www.instagram.com/lagatimanada/'
+          }
+        })
+    }
 
     return <div className="relative mx-auto" style={{width: 600, height: 600}}>
 
@@ -50,7 +72,7 @@ export default function Card({ animal, image, nextAnimal, prevAnimal }) {
                   <div className="text-3xl font-bold mx-auto"><FontAwesomeIcon icon={faRotateLeft}/></div>
                 </div>
 
-                <div onClick={nextAnimal} className="text-green-300 border-green-500 border-2 flex w-20 h-20 rounded-full items-center cursor-pointer">
+                <div onClick={showForm} className="text-green-300 border-green-500 border-2 flex w-20 h-20 rounded-full items-center cursor-pointer">
                   <div className="text-4xl font-bold mx-auto"><FontAwesomeIcon icon={faHeart}/></div>
                 </div>
 
