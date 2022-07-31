@@ -49,24 +49,24 @@ export default function Home() {
 
   const animal = animals[currentIdx]
 
-  return (
-    <div className="container py-8 max-w-4xl mx-auto w-100" style={{minWidth: 600, minHeight: 600}}>
+  return (<div>
+    <div className="container pt-8 max-w-4xl mx-auto w-100" style={{minWidth: 600, minHeight: 600}}>
 
-      <div className="mb-8 flex justify-center">
+      <header className="mb-8 flex justify-center">
           <Image
             className="rounded-full"
             height={100}
             width={100}
             src="/gatimanada_logo.jpg"
           ></Image>
-      </div>
+      </header>
 
       {loading ?
         <div className="flex justify-center mt-72 text-white">
           <FontAwesomeIcon icon={faSpinner} spin size="4x" />
         </div>
         :
-        <div className="m-auto">
+        <main className="m-auto">
           {animals.length > 0 ?
             <div>
               <Carousel gap={0} mobileBreakpoint={0} key={currentIdx}>
@@ -95,8 +95,19 @@ export default function Home() {
             :
             <div className="text-3xl mt-72 text-white flex justify-center">No hay animales por ahora 🐱</div>
           }
-        </div>
+        </main>
       }
+
+    </div>
+
+    {!loading && animals.length > 0 ?
+    <footer className="flex justify-center bg-slate-900 text-white p-4 mt-6" style={{minWidth: 600}}>
+    <p>
+      {new Date().getFullYear()} Gatinder. Made with <span className="text-red-500">❤</span> by Cat lovers.
+    </p>
+    </footer>
+    : ""}
+
     </div>
   )
 }
