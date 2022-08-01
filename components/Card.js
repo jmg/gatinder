@@ -53,11 +53,11 @@ export default function Card({ animal, image, nextAnimal, prevAnimal }) {
               <div className="mt-2 text-l uppercase inline">{animal.subtitle}</div>
             </div>
 
-            <p className="mt-2 text-md uppercase">{animal.sex}, {animal.age}</p>
+            <p className="mt-2 text-xl uppercase">{animal.sex}, {animal.age}</p>
 
             <div className="mt-1 leading-5">
-              <p className="text-md">{animal.description}</p>
-              <p className="text-md">{animal.description_2}</p>
+              <p className="text-xl">{animal.description}</p>
+              <p className="text-xl">{animal.description_2}</p>
             </div>
 
             <div className="w-100 flex items-center">

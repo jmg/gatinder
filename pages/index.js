@@ -84,7 +84,7 @@ export default function Home() {
                 })}
               </Carousel>
 
-              <div className="mx-auto p-4 md:p-0 pb-0 py-2 mt-2 md:mt-4 text-white text-justify text-lg" style={{ maxWidth: 600 }}>
+              <div className="mx-auto p-4 md:p-0 pb-0 py-2 mt-2 md:mt-4 text-white text-justify text-xl" style={{ maxWidth: 600 }}>
                 <div className={showMore ? "" : "line-clamp-6"}>
                   {renderHTML(animal.long_description)}
                 </div>
