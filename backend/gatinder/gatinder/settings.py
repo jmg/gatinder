@@ -36,7 +36,7 @@ else:
     ALLOWED_HOSTS = ["gatinder.catpuccino.org"]
     DEBUG = False
 
-CORS_ALLOWED_ORIGINS = ["https://gatinder-gatimanada.vercel.app", "https://gatinder-jmg.vercel.app", "http://localhost:3000"]
+CORS_ALLOWED_ORIGINS = ["https://gatinder-gatimanada.vercel.app", "https://gatinder-jmg.vercel.app", "http://localhost:3000", "https://lagatimanada.com.ar"]
 CSRF_TRUSTED_ORIGINS = ["https://gatinder.catpuccino.org"]
 
 CORS_ALLOW_METHODS = [
