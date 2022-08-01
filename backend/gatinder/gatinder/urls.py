@@ -28,4 +28,6 @@ router.register('animals', views.AnimalsViewSet)
 urlpatterns = [
     path('api/v1/', include(router.urls)),
     path('admin/', admin.site.urls),
+    path('tinymce/', include('tinymce.urls')),
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
