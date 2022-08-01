@@ -21,7 +21,7 @@ export default function Card({ animal, image, nextAnimal, prevAnimal }) {
           cancelButtonText: 'No, gracias'
         }).then((result) => {
           if (result.isConfirmed) {
-            location.href = 'https://www.instagram.com/lagatimanada/'
+            location.href = 'https://forms.gle/b2zQR3fsHeJoQm6V6'
           }
         })
     }
