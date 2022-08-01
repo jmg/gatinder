@@ -66,7 +66,7 @@ export default function Home() {
 
       {loading ?
         <div className="flex justify-center mt-72 text-white">
-          <FontAwesomeIcon icon={faSpinner} spin size="4x" />
+          <FontAwesomeIcon icon={faSpinner} width="64" spin size="4x" />
         </div>
         :
         <main className="m-auto">
