@@ -41,3 +41,4 @@ backend/gatinder/gatinder/images/*
 backend/gatinder/gatinder/settings_local.py
 
 server.sh
+deploy.sh
