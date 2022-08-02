@@ -84,13 +84,13 @@ export default function Home() {
                 })}
               </Carousel>
 
-              <div className="mx-auto p-4 md:p-0 pb-0 py-2 mt-2 md:mt-4 text-white text-justify text-xl" style={{ maxWidth: 600 }}>
+              <div className="mx-auto p-4 md:p-0 pb-0 py-2 mt-2 md:mt-4 text-white text-justify md:text-lg text-xl" style={{ maxWidth: 600 }}>
                 <div className={showMore ? "" : "line-clamp-6"}>
                   {renderHTML(animal.long_description)}
                 </div>
 
                 {!showMore ?
-                <button onClick={() => setShowMore(!showMore)} className="mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded text-xl">
+                <button onClick={() => setShowMore(!showMore)} className="mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded md:text-lg text-xl">
                   Mostrar más
                 </button>
                 : ""}

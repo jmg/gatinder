@@ -49,15 +49,15 @@ export default function Card({ animal, image, nextAnimal, prevAnimal }) {
             </div>
 
             <div className="bg-white text-black p-1 px-2 w-fit rounded-md mix-blend-screen">
-              <div className="text-l inline mr-1"><FontAwesomeIcon icon={faCrosshairs}/></div>
+              <div className="md:text-md text-l inline mr-1"><FontAwesomeIcon icon={faCrosshairs}/></div>
               <div className="mt-2 text-l uppercase inline">{animal.subtitle}</div>
             </div>
 
-            <p className="mt-2 text-xl uppercase">{animal.sex}, {animal.age}</p>
+            <p className="mt-2 md:text-lg text-xl uppercase">{animal.sex}, {animal.age}</p>
 
             <div className="mt-1 leading-5">
-              <p className="text-xl">{animal.description}</p>
-              <p className="text-xl">{animal.description_2}</p>
+              <p className="md:text-lg text-xl">{animal.description}</p>
+              <p className="md:text-lg text-xl">{animal.description_2}</p>
             </div>
 
             <div className="w-100 flex items-center">
