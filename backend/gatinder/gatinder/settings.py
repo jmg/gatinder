@@ -33,11 +33,11 @@ if ENV == 'LOCAL':
     ALLOWED_HOSTS = ["localhost"]
 else:
     SSL_HOST = "https://gatinder.catpuccino.org"
-    ALLOWED_HOSTS = ["gatinder.catpuccino.org"]
+    ALLOWED_HOSTS = ["gatinder.catpuccino.org", "api.catpuccino.org"]
     DEBUG = False
 
 CORS_ALLOWED_ORIGINS = ["https://gatinder-gatimanada.vercel.app", "https://gatinder-jmg.vercel.app", "http://localhost:3000", "https://lagatimanada.com.ar", "https://www.lagatimanada.com.ar"]
-CSRF_TRUSTED_ORIGINS = ["https://gatinder.catpuccino.org"]
+CSRF_TRUSTED_ORIGINS = ["https://gatinder.catpuccino.org", "https://api.catpuccino.org"]
 
 CORS_ALLOW_METHODS = [
     "DELETE",
