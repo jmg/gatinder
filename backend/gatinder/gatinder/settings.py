@@ -30,9 +30,11 @@ ENV = os.environ.get('ENV', 'LOCAL')
 
 if ENV == 'LOCAL':
     SSL_HOST = "http://localhost:8000"
+    FRONT_END_APP_URL = "http://localhost:3000"
     ALLOWED_HOSTS = ["localhost"]
 else:
     SSL_HOST = "https://gatinder.catpuccino.org"
+    FRONT_END_APP_URL = "https://lagatimanada.com.ar"
     ALLOWED_HOSTS = ["gatinder.catpuccino.org", "api.catpuccino.org"]
     DEBUG = False
 
@@ -167,6 +169,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+INVALIDATE_CACHE_SECRET_KEY = "invalidate-cache-secret-key"
 
 try:
     from .settings_local import *

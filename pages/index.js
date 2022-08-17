@@ -7,21 +7,15 @@ import Carousel from 'react-grid-carousel'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export default function Home() {
+export default function Home({ animals }) {
 
-  const [animals, setAnimals] = useState([])
   const [loading, setLoading] = useState(true)
   const [showMore, setShowMore] = useState(false)
   const [currentIdx, setCurrentIndex] = useState(0)
 
   useEffect(() => {
 
-    fetch(API_URL + "/animals/?format=json").then((resp) => resp.json()).then((animals) => {
-      setAnimals(animals)
-      setLoading(false)
-    }).catch(rejected => {
-      console.log(rejected);
-    })
+    setLoading(false)
 
   }, [])
 
@@ -115,4 +109,14 @@ export default function Home() {
 
     </div>
   )
+}
+
+export async function getStaticProps(context) {
+
+  const resp = await fetch(API_URL + "/animals/?format=json")
+  const animals = await resp.json()
+
+  return {
+    props: {animals},
+  }
 }
