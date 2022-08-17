@@ -3,9 +3,7 @@ import { faCheck, faCrosshairs, faTimes, faHeart, faRotateLeft, faCertificate } 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
-
-const MySwal = withReactContent(Swal)
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 
 export default function Card({ animal, image, nextAnimal, prevAnimal }) {
