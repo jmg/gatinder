@@ -1,9 +1,8 @@
-import Image from "next/image";
+import Image from "next/image"
+import Swal from 'sweetalert2'
 import { faCheck, faCrosshairs, faTimes, faHeart, faRotateLeft, faCertificate } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-import Swal from 'sweetalert2'
-import '@fortawesome/fontawesome-svg-core/styles.css';
+import '@fortawesome/fontawesome-svg-core/styles.css'
 
 
 export default function Card({ animal, image, nextAnimal, prevAnimal }) {

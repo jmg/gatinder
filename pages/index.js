@@ -1,12 +1,9 @@
+import { createElement, useState } from "react"
+import Image from "next/image"
+import Head from "next/head"
 import API_URL from "../settings"
 import Card from "../components/Card"
-import { createElement, useEffect, useState } from "react"
-import Image from "next/image"
-import Carousel from 'react-grid-carousel'
-
-import { faSpinner } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Head from "next/head"
+import Carousel from "react-grid-carousel"
 
 export default function Home({ animals }) {
 
