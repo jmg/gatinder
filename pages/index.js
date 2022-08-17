@@ -42,7 +42,6 @@ export default function Home({ animals }) {
     <Head>
       <title>Gatinder</title>
       <link rel="icon" href="/favicon.ico" />
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <meta name="description" content="Gatinder es una aplicación que te ayuda a encontrar el gato ideal." />
     </Head>
 
